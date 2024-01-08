@@ -1,10 +1,14 @@
 /**
- * Copyright (c) 2010-2018 by the respective copyright holders.
+ * Copyright (c) 2010-2024 Contributors to the openHAB project
  *
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * See the NOTICE file(s) distributed with this work for additional
+ * information.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.openhab.binding.icomfortwifi.internal.api;
 
@@ -55,9 +59,9 @@ public class ApiAccess {
     /**
      * Issues an HTTP request on the API's URL. Makes sure that the request is correctly formatted.
      *
-     * @param method      The HTTP method to use (POST, GET, ...)
-     * @param url         The URL to query
-     * @param headers     The optional additional headers to apply, can be null
+     * @param method The HTTP method to use (POST, GET, ...)
+     * @param url The URL to query
+     * @param headers The optional additional headers to apply, can be null
      * @param requestData The optional request data to use, can be null
      * @param contentType The content type to use with the request data. Required when using requestData
      * @return The result of the request or null
@@ -105,7 +109,7 @@ public class ApiAccess {
      * Issues an HTTP GET request on the API's URL, using an object that is serialized to JSON as input.
      * Makes sure that the request is correctly formatted.*
      *
-     * @param url      The URL to query
+     * @param url The URL to query
      * @param outClass The type of the requested result
      * @return The result of the request or null
      * @throws TimeoutException Thrown when a request times out
@@ -118,7 +122,7 @@ public class ApiAccess {
      * Issues an HTTP PUT request on the API's URL, using an object that is serialized to JSON as input.
      * Makes sure that the request is correctly formatted.*
      *
-     * @param url              The URL to query
+     * @param url The URL to query
      * @param requestContainer The object to use as JSON data for the request
      * @throws TimeoutException Thrown when a request times out
      */
@@ -130,9 +134,9 @@ public class ApiAccess {
      * Issues an HTTP PUT request on the API's URL, using an object that is serialized to JSON as input.
      * Makes sure that the request is correctly formatted.*
      *
-     * @param url              The URL to query
+     * @param url The URL to query
      * @param requestContainer The object to use as JSON data for the request
-     * @param outClass         The type of the requested result
+     * @param outClass The type of the requested result
      * @throws TimeoutException Thrown when a request times out
      */
     public <TOut> TOut doAuthenticatedPut(String url, Object requestContainer, Class<TOut> outClass)
@@ -145,10 +149,10 @@ public class ApiAccess {
      * using the authentication applied to the type.
      * Makes sure that the request is correctly formatted.*
      *
-     * @param method           The HTTP method to use (POST, GET, ...)
-     * @param url              The URL to query
+     * @param method The HTTP method to use (POST, GET, ...)
+     * @param url The URL to query
      * @param requestContainer The object to use as JSON data for the request
-     * @param outClass         The type of the requested result
+     * @param outClass The type of the requested result
      * @return The result of the request or null
      * @throws TimeoutException Thrown when a request times out
      */
@@ -171,11 +175,11 @@ public class ApiAccess {
      * Issues an HTTP request on the API's URL, using an object that is serialized to JSON as input.
      * Makes sure that the request is correctly formatted.*
      *
-     * @param method           The HTTP method to use (POST, GET, ...)
-     * @param url              The URL to query
-     * @param headers          The optional additional headers to apply, can be null
+     * @param method The HTTP method to use (POST, GET, ...)
+     * @param url The URL to query
+     * @param headers The optional additional headers to apply, can be null
      * @param requestContainer The object to use as JSON data for the request
-     * @param outClass         The type of the requested result
+     * @param outClass The type of the requested result
      * @return The result of the request or null
      * @throws TimeoutException Thrown when a request times out
      */

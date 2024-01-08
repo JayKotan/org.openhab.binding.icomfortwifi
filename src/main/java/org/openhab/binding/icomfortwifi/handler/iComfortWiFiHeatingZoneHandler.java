@@ -1,25 +1,22 @@
 /**
- * Copyright (c) 2010-2018 by the respective copyright holders.
+ * Copyright (c) 2010-2024 Contributors to the openHAB project
  *
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * See the NOTICE file(s) distributed with this work for additional
+ * information.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0
+ *
+ * SPDX-License-Identifier: EPL-2.0
  */
 package org.openhab.binding.icomfortwifi.handler;
+
+import static org.openhab.core.library.unit.Units.PERCENT;
 
 import javax.measure.Unit;
 import javax.measure.quantity.Temperature;
 
-import org.eclipse.smarthome.core.library.types.QuantityType;
-import org.eclipse.smarthome.core.library.types.StringType;
-import org.eclipse.smarthome.core.library.unit.SmartHomeUnits;
-import org.eclipse.smarthome.core.thing.ChannelUID;
-import org.eclipse.smarthome.core.thing.Thing;
-import org.eclipse.smarthome.core.thing.ThingStatus;
-import org.eclipse.smarthome.core.thing.ThingStatusDetail;
-import org.eclipse.smarthome.core.types.Command;
-import org.eclipse.smarthome.core.types.RefreshType;
 import org.openhab.binding.icomfortwifi.iComfortWiFiBindingConstants;
 import org.openhab.binding.icomfortwifi.internal.api.models.response.CustomTypes.AwayStatus;
 import org.openhab.binding.icomfortwifi.internal.api.models.response.CustomTypes.FanMode;
@@ -27,6 +24,14 @@ import org.openhab.binding.icomfortwifi.internal.api.models.response.CustomTypes
 import org.openhab.binding.icomfortwifi.internal.api.models.response.CustomTypes.TempUnits;
 import org.openhab.binding.icomfortwifi.internal.api.models.response.CustomTypes.UnifiedOperationMode;
 import org.openhab.binding.icomfortwifi.internal.api.models.response.ZoneStatus;
+import org.openhab.core.library.types.QuantityType;
+import org.openhab.core.library.types.StringType;
+import org.openhab.core.thing.ChannelUID;
+import org.openhab.core.thing.Thing;
+import org.openhab.core.thing.ThingStatus;
+import org.openhab.core.thing.ThingStatusDetail;
+import org.openhab.core.types.Command;
+import org.openhab.core.types.RefreshType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,7 +74,7 @@ public class iComfortWiFiHeatingZoneHandler extends BaseiComfortWiFiHandler {
             updateState(iComfortWiFiBindingConstants.ZONE_TEMPERATURE_CHANNEL, new QuantityType<>(zoneStatus.indoorTemp,
                     zoneStatus.preferredTemperatureUnit.getTemperatureUnit()));
             updateState(iComfortWiFiBindingConstants.ZONE_HUMIDITY_CHANNEL,
-                    new QuantityType<>(zoneStatus.indoorHumidity, SmartHomeUnits.PERCENT));
+                    new QuantityType<>(zoneStatus.indoorHumidity, PERCENT));
             updateState(iComfortWiFiBindingConstants.ZONE_SYSTEM_STATUS_CHANNEL,
                     new StringType(zoneStatus.systemStatus.toString()));
             updateState(iComfortWiFiBindingConstants.ZONE_OPERATION_MODE_CHANNEL,
@@ -121,11 +126,10 @@ public class iComfortWiFiHeatingZoneHandler extends BaseiComfortWiFiHandler {
                 // Accommodating the case where Framework units are different from back end.
                 if (command instanceof QuantityType) {
                     Unit<Temperature> tempUnit = ((QuantityType<Temperature>) command).getUnit();
-                    if (tempUnit != zoneStatus.preferredTemperatureUnit.getTemperatureUnit()) {
+                    if (tempUnit.equals(zoneStatus.preferredTemperatureUnit.getTemperatureUnit())) {
                         bridge.setAlternateTemperatureUnit(TempUnits.getCustomTemperatureUnit(tempUnit));
                     }
                 }
-
                 String channelId = channelUID.getId();
                 if (iComfortWiFiBindingConstants.ZONE_UNIFIED_OPERATION_MODE_CHANNEL.equals(channelId)) {
                     logger.debug("Executing unified command");
@@ -203,5 +207,4 @@ public class iComfortWiFiHeatingZoneHandler extends BaseiComfortWiFiHandler {
         }
         return false;
     }
-
 }
