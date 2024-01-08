@@ -9,7 +9,7 @@
 		<description>An account for using the Lennox iComfort WiFi API</description>
 		
 		<config-description>
-		  <parameter name="userName" type="text" required="true">
+		<parameter name="userName" type="text" required="true">
                 <label>User Name</label>
                 <description>User name for logging in to iComfort system</description>
             </parameter>
