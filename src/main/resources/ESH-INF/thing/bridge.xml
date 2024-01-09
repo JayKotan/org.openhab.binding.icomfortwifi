@@ -10,11 +10,11 @@
 		<description>An account for using the Lennox iComfort WiFi API</description>
 
 		<config-description>
-			<parameter name="jaykotan" type="text" required="true">
+			<parameter name="AccountHere" type="text" required="true">
 				<label>User Name</label>
 				<description>User name for logging in to iComfort system</description>
 			</parameter>
-			<parameter name="Pfloyd123!" type="text" required="true">
+			<parameter name="PasswordHere!" type="text" required="true">
 				<label>Password</label>
 				<context>password</context>
 				<description>Password for logging in to iComfort system</description>
