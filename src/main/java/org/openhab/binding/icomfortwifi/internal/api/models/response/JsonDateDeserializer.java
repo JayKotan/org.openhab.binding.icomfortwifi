@@ -21,12 +21,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
 /**
- * Response model for the user profile
+ * Response model for the System Alert
  *
  * @author Konstantin Panchenko - Initial contribution
  *
  */
-
 public class JsonDateDeserializer implements JsonDeserializer<Date> {
 
     @Override

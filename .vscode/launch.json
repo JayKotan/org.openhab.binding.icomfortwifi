@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Debug (Attach) - openHAB",
+      "request": "attach",
+      "hostName": "localhost",
+      "port": 5005,
+      "sourceRoots": [
+        "src/main/java",
+        "src/test/java"
+      ]
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/openhab/addons/openhab-addons/bundles/org.openhab.binding.icomfortwifi/src/main/java",
+      "program": "c:/openhab/addons/openhab-addons/bundles/org.openhab.binding.icomfortwifi/src/main/java/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

@@ -12,7 +12,6 @@
 		<channel-groups>
 			<channel-group id="alertsAndReminders" typeId="alert01"/>
 		</channel-groups>
-
 		<properties>
 			<property name="vendor">Lennox</property>
 			<property name="systemName"></property>

@@ -19,12 +19,11 @@ import org.openhab.binding.icomfortwifi.internal.api.models.response.CustomTypes
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Response model for the user profile
+ * Response model for the System Alert
  *
  * @author Konstantin Panchenko - Initial contribution
  *
  */
-
 public class ZonesStatus {
 
     @SerializedName("ReturnStatus")

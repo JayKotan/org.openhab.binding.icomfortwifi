@@ -16,13 +16,15 @@ import org.eclipse.jdt.annotation.NonNullByDefault;
 
 /**
  * The configuration for the Nest bridge, allowing it to talk to Nest.
+ * Contains the configuration of the binding.
  *
  * @author Konstantin Panchenko - Initial contribution
+ * @author Jason Kotan - Updated Import section
  */
 @NonNullByDefault
 public class iComfortWiFiBridgeConfiguration {
 
-    private static final Integer DEFAULT_REFRESH = 30;
+    public static final Integer DEFAULT_REFRESH = 30;
 
     public String userName = "";
     public String password = "";

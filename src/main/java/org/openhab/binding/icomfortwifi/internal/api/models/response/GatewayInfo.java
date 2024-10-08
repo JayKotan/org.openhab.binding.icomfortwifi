@@ -21,7 +21,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Response model for the gateway information
  *
- * @author Konstantin Panchenko- Initial contribution
+ * @author Konstantin Panchenko - Initial contribution
  *
  */
 public class GatewayInfo {
